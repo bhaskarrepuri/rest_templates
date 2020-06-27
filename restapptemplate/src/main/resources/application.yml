@@ -1,0 +1,48 @@
+app:
+  name: springboot-jwt-demo
+
+server:
+ port: 8090
+
+jwt:
+  header: Authorization
+  expires_in: 300 # 5 minutes
+  mobile_expires_in: 600 # 10 minutes
+  secret: queenvictoria
+  expiration: 604800
+  
+spring:
+ jpa:
+  database: mysql
+  show-sql: true
+  database-platform: org.hibernate.dialect.MySQL5Dialect
+ datasource:
+  platform: org.hibernate.dialect.MySQL5Dialect
+  url: jdbc:mysql://localhost:3306/financerest
+  username: root
+  password: 229090
+  driverClassName: com.mysql.jdbc.Driver
+ jackson:
+  serialization:
+   INDENT_OUTPUT: true
+ h2:
+  console:
+   enabled: true
+   
+ 
+#Logging configuration
+#logging.level.root=debug   
+#logging.level.com.sri=error    
+#logging.path=logs    
+#logging.file=${logging.path}/logs/financerest.log    
+#logging.pattern.file=%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n    
+#logging.pattern.console=%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n
+
+#logging.level.root=error
+#logging.level.com.sri=debug
+#spring.profiles.active=dev
+#logging.console=off
+#logging.pattern.console=%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n
+#logging.path=logs
+#logging.file=${logging.path}/log.log
+#logging.pattern.file=%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n  
