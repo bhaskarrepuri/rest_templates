@@ -45,7 +45,7 @@ public class UserController extends BaseController {
 		return this.userService.findById(userId);
 	}
 
-	@PreAuthorize("hasRole('OWNER') or hasRole('EMPLOYEE') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	@RequestMapping(method = GET, value = "/user/all")
 	public List<User> loadAll() {
 		return this.userService.findAll();
@@ -57,7 +57,7 @@ public class UserController extends BaseController {
 	 * endpoint.
 	 */
 	@RequestMapping("/whoami")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public User user(Principal user) {
 		try {
 			// userService.saveEmployee();

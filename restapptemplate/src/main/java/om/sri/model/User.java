@@ -25,6 +25,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,13 +38,9 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
-public class User implements UserDetails {
-
-	@Id
-	@Column(name = "id", unique = true, nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class User extends SuperEntity implements UserDetails {
 
 	@Column(name = "userid", unique = true, nullable = false, length = 45)
 	private String userId;
@@ -88,16 +85,6 @@ public class User implements UserDetails {
 
 	@Column(name = "address", nullable = false)
 	private String address;
-
-	@Column(name = "createdby", nullable = true)
-	private Integer createdby;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "createddate", length = 10)
-	private Date createddate;
-
-	@Column(name = "updatedby", nullable = true)
-	private Integer updatedby;
 
 	@Column(name = "status")
 	private String status;
